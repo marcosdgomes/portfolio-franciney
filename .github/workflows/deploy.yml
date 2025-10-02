@@ -1,4 +1,4 @@
-name: Build, Push, and Deploy via Ansible
+name: Build, Push, and Deploy via Portainer
 
 on:
   push:
@@ -31,26 +31,8 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
 
-      # --- PARTE 2: DEPLOY VIA ANSIBLE (CONTAINER) ---
-      - name: Configure SSH Key
-        uses: webfactory/ssh-agent@v0.9.0
+      # --- PARTE 2: DEPLOY VIA PORTAINER WEBHOOK ---
+      - name: Trigger Portainer webhook
+        uses: distributhor/workflow-webhook@v3
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Add remote server to known hosts
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-
-      - name: Run Ansible Playbook to Deploy (via Docker)
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/workspace \
-            -v ~/.ssh:/root/.ssh:ro \
-            -w /workspace \
-            --network host \
-            quay.io/ansible/ansible-runner:latest \
-            ansible-playbook \
-              -i infra/inventory.ini \
-              infra/install_portfolio.yml
+          webhook_url: ${{ secrets.PORTAINER_WEBHOOK_PORTFOLIO }}
