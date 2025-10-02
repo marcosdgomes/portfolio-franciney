@@ -1,42 +1,54 @@
-# ansible/portfolio-deployer/install_portfolio.yml
+name: Build, Push, and Deploy via Ansible
 
----
-- name: Deploy Portfolio from Git with Docker Compose
-  hosts: servers
-  become: yes
-  vars:
-    # --- CONFIGURE AQUI ---
-    # URL do seu repositório Git (use a URL SSH ou HTTPS)
-    repo_url: "git@github.com:marcosdgomes/portfolio-franciney.git"
-    
-    # Pasta no servidor onde o projeto será clonado
-    project_path: "/opt/portfolio-franciney"
-    
-    # Branch que será usada para o deploy
-    branch: "main"
+on:
+  push:
+    branches:
+      - main 
 
-  tasks:
-    - name: 1. Install prerequisites (git and docker python lib)
-      apt:
-        name:
-          - git
-          - python3-docker
-        state: present
-        update_cache: yes
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write 
 
-    - name: 2. Pull latest version from Git repository
-      git:
-        repo: "{{ repo_url }}"
-        dest: "{{ project_path }}"
-        version: "{{ branch }}"
-        force: yes # Garante que a branch local reflita a remota
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: 3. Build image and deploy stack with Docker Compose
-      community.docker.docker_compose_v2:
-        project_src: "{{ project_path }}"
-        build: yes # <-- A MÁGICA ACONTECE AQUI. Força o build da imagem
-        state: present
+      # --- PARTE 1: BUILD E PUSH DA IMAGEM ---
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Print final status message
-      debug:
-        msg: "SUCCESS! Portfolio deployed with the latest code from the '{{ branch }}' branch."
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
+
+      # --- PARTE 2: DEPLOY VIA ANSIBLE ---
+      - name: Install Ansible
+        run: sudo apt-get install -y ansible
+
+      - name: Configure SSH Key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add remote server to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Run Ansible Playbook to Deploy
+        run: |
+          ansible-playbook \
+            -i "${{ secrets.SSH_HOST }}," \
+            --user "${{ secrets.SSH_USER }}" \
+            infra/install_portfolio.yml

@@ -1,5 +1,4 @@
-# .github/workflows/deploy.yml
-name: Deploy to Server via Ansible
+name: Build, Push, and Deploy via Ansible
 
 on:
   push:
@@ -7,17 +6,34 @@ on:
       - main 
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write 
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # --- PARTE 1: BUILD E PUSH DA IMAGEM ---
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
+
+      # --- PARTE 2: DEPLOY VIA ANSIBLE ---
       - name: Install Ansible
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ansible
+        run: sudo apt-get install -y ansible
 
       - name: Configure SSH Key
         uses: webfactory/ssh-agent@v0.9.0
@@ -30,8 +46,9 @@ jobs:
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
-      - name: Run Ansible Playbook
+      - name: Run Ansible Playbook to Deploy
         run: |
           ansible-playbook \
-            -i infra/inventory.ini \
+            -i "${{ secrets.SSH_HOST }}," \
+            --user "${{ secrets.SSH_USER }}" \
             infra/install_portfolio.yml
