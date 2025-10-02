@@ -1,4 +1,4 @@
-# Use a imagem oficial do Node.js 18 Alpine como base
+# Use imagem oficial do Node.js 18 Alpine como base
 FROM node:18-alpine AS base
 
 # Instalar dependências necessárias para o Alpine
