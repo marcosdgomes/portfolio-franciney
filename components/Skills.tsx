@@ -9,7 +9,7 @@ import {
   Search, 
   TestTube, 
   Settings,
-  React as ReactIcon,
+  // React as ReactIcon,
   Database,
   Globe,
   Smartphone,
@@ -53,7 +53,7 @@ export default function Skills() {
       icon: Code,
       color: "from-blue-500 to-cyan-500",
       skills: [
-        { name: "React", level: 90, icon: ReactIcon },
+        { name: "React", level: 90, icon: Code },
         { name: "Next.js", level: 88, icon: Globe },
         { name: "TypeScript", level: 85, icon: Code },
         { name: "JavaScript", level: 92, icon: Code },

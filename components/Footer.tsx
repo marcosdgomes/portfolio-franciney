@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
-
+  const { t, locale } = useLanguage();
+  
   const scrollToTop = () => {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -37,12 +37,12 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: t.nav.home, href: t.locale === 'en' ? '/eng' : '/' },
-    { name: t.nav.about, href: t.locale === 'en' ? '/eng#about' : '#about' },
-    { name: t.nav.experience, href: t.locale === 'en' ? '/eng#experience' : '#experience' },
-    { name: t.nav.skills, href: t.locale === 'en' ? '/eng#skills' : '#skills' },
-    { name: t.nav.blog, href: t.locale === 'en' ? '/eng/blog' : '/blog' },
-    { name: t.nav.contact, href: t.locale === 'en' ? '/eng#contact' : '#contact' },
+    { name: t.nav.home, href: locale === 'en' ? '/eng' : '/' },
+    { name: t.nav.about, href: locale === 'en' ? '/eng#about' : '#about' },
+    { name: t.nav.experience, href: locale === 'en' ? '/eng#experience' : '#experience' },
+    { name: t.nav.skills, href: locale === 'en' ? '/eng#skills' : '#skills' },
+    { name: t.nav.blog, href: locale === 'en' ? '/eng/blog' : '/blog' },
+    { name: t.nav.contact, href: locale === 'en' ? '/eng#contact' : '#contact' },
   ];
 
   return (

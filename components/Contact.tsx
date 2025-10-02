@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -277,11 +279,13 @@ export default function Contact() {
                   <div className="text-left">
                     <div className="flex justify-start mb-4">
                       <div className="bg-black dark:bg-transparent p-2 rounded-lg">
-                        <img 
-                          src="https://alonerd.com/wp-content/uploads/2025/03/lrv-1-1.png" 
-                          alt="AloNerd Logo" 
-                          className="h-12 w-auto object-contain"
-                        />
+                      <Image 
+                        src="https://alonerd.com/wp-content/uploads/2025/03/lrv-1-1.png" 
+                        alt="AloNerd Logo" 
+                        width={48}
+                        height={48}
+                        className="h-12 w-auto object-contain"
+   />
                       </div>
                     </div>
                     <h3 className="text-lg font-bold mb-2">
@@ -296,13 +300,13 @@ export default function Contact() {
                       className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 hover:scale-105"
                       asChild
                     >
-                      <a
-                        href="/blog"
-                        className="inline-flex items-center gap-2"
-                      >
-                        {t.contact.blog.button}
-                        <span className="text-xs opacity-60">→</span>
-                      </a>
+                    <Link
+                      href="/blog"
+                      className="inline-flex items-center gap-2"
+                    >
+                      {t.contact.blog.button}
+                      <span className="text-xs opacity-60">→</span>
+                    </Link>
                     </Button>
                   </div>
                 </CardContent>

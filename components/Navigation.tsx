@@ -8,19 +8,36 @@ import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { locale, setLocale, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
+
+  // Função para gerar o href correto baseado na página atual
+  const getHref = (key: string, baseHref: string) => {
+    // Se estamos na página home, usar âncora simples
+    if (pathname === '/' || pathname === '/eng') {
+      return baseHref;
+    }
+    
+    // Se estamos em outra página, usar caminho completo
+    if (baseHref.startsWith('#')) {
+      return locale === 'en' ? `/eng${baseHref}` : `/${baseHref}`;
+    }
+    
+    return baseHref;
+  };
 
   const navItems = [
     { key: 'home', href: locale === 'en' ? '/eng' : '/', icon: Home },
-    { key: 'about', href: locale === 'en' ? '/eng#about' : '#about', icon: User },
-    { key: 'experience', href: locale === 'en' ? '/eng#experience' : '#experience', icon: Briefcase },
-    { key: 'skills', href: locale === 'en' ? '/eng#skills' : '#skills', icon: Code },
+    { key: 'about', href: getHref('about', locale === 'en' ? '/eng#about' : '#about'), icon: User },
+    { key: 'experience', href: getHref('experience', locale === 'en' ? '/eng#experience' : '#experience'), icon: Briefcase },
+    { key: 'skills', href: getHref('skills', locale === 'en' ? '/eng#skills' : '#skills'), icon: Code },
     { key: 'blog', href: locale === 'en' ? '/eng/blog' : '/blog', icon: BookOpen },
-    { key: 'contact', href: locale === 'en' ? '/eng#contact' : '#contact', icon: Mail },
+    { key: 'contact', href: getHref('contact', locale === 'en' ? '/eng#contact' : '#contact'), icon: Mail },
   ];
 
   return (
