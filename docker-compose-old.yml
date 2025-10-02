@@ -1,8 +1,10 @@
 services:
   portfolio:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # Building image from the GitHub Container Registry on actions
+    image: ghcr.io/marcosdgomes/dmc-devops-tools:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
