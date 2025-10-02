@@ -1,9 +1,9 @@
-# docker-compose.yml
+#  docker-compose.yml
 version: '3.8'
 
 services:
   portfolio:
-    # Building the image from the GitHub Container Registry on actions
+    # Building image from the GitHub Container Registry on actions
     image: ghcr.io/marcosdgomes/dmc-devops-tools:latest
     ports:
       - "3000:3000"
