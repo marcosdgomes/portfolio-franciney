@@ -74,7 +74,7 @@ export const translations = {
         ],
       },
       faturágil: {
-        title: "Analista de Suporte Técnico Júnior",
+        title: "Analista de Suporte Técnico",
         company: "Faturágil – Software de Automação Financeira",
         period: "nov/2023 – nov/2024",
         description: "Atendimento a clientes via plataforma online, testes de API e configuração de SMTP, suporte a integrações financeiras e emissão de notas fiscais.",
@@ -241,7 +241,7 @@ export const translations = {
         ],
       },
       faturágil: {
-        title: "Junior Technical Support Analyst",
+        title: "Technical Support Analyst",
         company: "Faturágil – Financial Automation Software",
         period: "nov/2023 – nov/2024",
         description: "Customer service via online platform, API testing and SMTP configuration, support for financial integrations and tax invoice issuance.",
