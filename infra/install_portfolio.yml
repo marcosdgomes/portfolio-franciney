@@ -1,0 +1,42 @@
+# ansible/portfolio-deployer/install_portfolio.yml
+
+---
+- name: Deploy Portfolio from Git with Docker Compose
+  hosts: servers
+  become: yes
+  vars:
+    # --- CONFIGURE AQUI ---
+    # URL do seu repositório Git (use a URL SSH ou HTTPS)
+    repo_url: "git@github.com:marcosdgomes/portfolio-franciney.git"
+    
+    # Pasta no servidor onde o projeto será clonado
+    project_path: "/opt/portfolio-franciney"
+    
+    # Branch que será usada para o deploy
+    branch: "main"
+
+  tasks:
+    - name: 1. Install prerequisites (git and docker python lib)
+      apt:
+        name:
+          - git
+          - python3-docker
+        state: present
+        update_cache: yes
+
+    - name: 2. Pull latest version from Git repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ project_path }}"
+        version: "{{ branch }}"
+        force: yes # Garante que a branch local reflita a remota
+
+    - name: 3. Build image and deploy stack with Docker Compose
+      community.docker.docker_compose_v2:
+        project_src: "{{ project_path }}"
+        build: yes # <-- A MÁGICA ACONTECE AQUI. Força o build da imagem
+        state: present
+
+    - name: Print final status message
+      debug:
+        msg: "SUCCESS! Portfolio deployed with the latest code from the '{{ branch }}' branch."
