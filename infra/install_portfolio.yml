@@ -4,9 +4,6 @@
   become: yes
   vars:
     project_path: "/opt/portfolio-franciney"
-    docker_image: "ghcr.io/marcosdgomes/portfolio-franciney:latest"
-    container_name: "portfolio-franciney"
-    app_port: 3000
 
   tasks:
     - name: 1. Ensure project directory exists
@@ -30,45 +27,22 @@
         state: started
         enabled: yes
 
-    - name: 4. Create docker network if it doesn't exist
-      docker_network:
-        name: app_network
-        state: present
+    - name: 4. Copy docker-compose.yml to server
+      copy:
+        src: "{{ playbook_dir }}/../../docker-compose.yml"
+        dest: "{{ project_path }}/docker-compose.yml"
 
-    - name: 5. Login to GitHub Container Registry
-      docker_login:
-        registry: ghcr.io
-        username: "{{ github_username | default('marcosdgomes') }}"
-        password: "{{ github_token }}"
+    - name: 5. Create docker network
+      shell: docker network create app_network || true
+      failed_when: false
 
-    - name: 6. Pull latest image
-      docker_image:
-        name: "{{ docker_image }}"
-        source: pull
-        force_source: yes
+    - name: 6. Login to GitHub Container Registry
+      shell: |
+        echo "{{ github_token }}" | docker login ghcr.io -u marcosdgomes --password-stdin
+      failed_when: false
 
-    - name: 7. Stop and remove existing container
-      docker_container:
-        name: "{{ container_name }}"
-        state: absent
-        force_kill: yes
-
-    - name: 8. Start portfolio container
-      docker_container:
-        name: "{{ container_name }}"
-        image: "{{ docker_image }}"
-        state: started
-        restart_policy: unless-stopped
-        ports:
-          - "{{ app_port }}:{{ app_port }}"
-        env:
-          NODE_ENV: production
-          PORT: "{{ app_port }}"
-        networks:
-          - app_network
-        healthcheck:
-          test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:{{ app_port }}"]
-          interval: 30s
-          timeout: 10s
-          retries: 3
-          start_period: 40s
+    - name: 7. Pull and restart services
+      shell: |
+        cd {{ project_path }}
+        docker-compose pull
+        docker-compose up -d
