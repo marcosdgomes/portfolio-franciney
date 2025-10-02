@@ -61,7 +61,7 @@ export const translations = {
       mainAchievements: "Principais Conquistas",
       technologiesUsed: "Tecnologias Utilizadas",
       konneqt: {
-        title: "Web Designer PJ",
+        title: "Web Designer (PJ)",
         company: "Konneqt – Cybersecurity",
         period: "nov/2024 – Atualmente",
         description: "Criação e manutenção do site institucional, desenvolvimento de landing pages e marketplace em ferramentas de IA/LLM usando React, com integrações via n8n, ClickUp, Mailchimp, SendPulse.",
@@ -228,7 +228,7 @@ export const translations = {
       mainAchievements: "Main Achievements",
       technologiesUsed: "Technologies Used",
       konneqt: {
-        title: "Web Designer PJ",
+        title: "Web Designer (PJ)",
         company: "Konneqt – Cybersecurity",
         period: "nov/2024 – Currently",
         description: "Creation and maintenance of institutional website, development of landing pages and marketplace in AI/LLM tools using React, with integrations via n8n, ClickUp, Mailchimp, SendPulse.",
