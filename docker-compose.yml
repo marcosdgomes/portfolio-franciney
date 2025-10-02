@@ -1,7 +1,7 @@
 services:
   portfolio:
     # Building image from the GitHub Container Registry on actions
-    image: ghcr.io/marcosdgomes/dmc-devops-tools:latest
+    image: ghcr.io/marcosdgomes/portfolio-franciney:latest
     ports:
       - "3000:3000"
     environment:
