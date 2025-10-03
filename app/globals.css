@@ -98,3 +98,17 @@ html {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Mobile fallbacks for animations */
+@media (max-width: 768px) {
+  .motion-reduce {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Ensure sections are visible on mobile */
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

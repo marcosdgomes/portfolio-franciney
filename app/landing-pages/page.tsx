@@ -1,0 +1,292 @@
+"use client";
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Smartphone, Zap, Palette, Clock, Scale, ArrowRight } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
+
+export default function LandingPages() {
+  const { t } = useLanguage();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const features = [
+    {
+      icon: Smartphone,
+      title: t.landingPages.features.responsive,
+      description: "Design adaptável para todos os dispositivos"
+    },
+    {
+      icon: Zap,
+      title: t.landingPages.features.optimized,
+      description: "Estratégias comprovadas de conversão"
+    },
+    {
+      icon: Palette,
+      title: t.landingPages.features.modern,
+      description: "Interface moderna e profissional"
+    },
+    {
+      icon: Clock,
+      title: t.landingPages.features.fast,
+      description: "Performance otimizada para velocidade"
+    }
+  ];
+
+  const landingPageModels = [
+    {
+      id: "lawyer",
+      title: t.landingPages.models.lawyer.title,
+      description: t.landingPages.models.lawyer.description,
+      category: t.landingPages.models.lawyer.category,
+      image: "/api/placeholder/400/250",
+      icon: Scale,
+      color: "from-blue-600 to-indigo-700",
+      href: "/landing-pages/lawyer",
+      available: true
+    },
+    {
+      id: "coming-soon-1",
+      title: "Consultoria Empresarial",
+      description: "Landing page para consultores empresariais e coaches executivos.",
+      category: "Serviços Profissionais",
+      image: "/api/placeholder/400/250",
+      icon: ExternalLink,
+      color: "from-gray-400 to-gray-500",
+      href: "#",
+      available: false
+    },
+    {
+      id: "coming-soon-2",
+      title: "Clínica Médica",
+      description: "Página de conversão para clínicas e consultórios médicos.",
+      category: "Saúde",
+      image: "/api/placeholder/400/250",
+      icon: ExternalLink,
+      color: "from-gray-400 to-gray-500",
+      href: "#",
+      available: false
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.div variants={itemVariants} className="mb-8">
+              <h1 className="text-4xl md:text-6xl font-black mb-6 text-foreground tracking-tight">
+                {t.landingPages.title}
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                {t.landingPages.subtitle}
+              </p>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                {t.landingPages.description}
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -5 }}
+                  className="group"
+                >
+                  <Card className="h-full text-center p-6 hover:shadow-xl transition-all duration-300 group-hover:border-primary/50">
+                    <CardContent className="space-y-4">
+                      <div className="mx-auto w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <feature.icon className="h-8 w-8 text-white" />
+                      </div>
+                      <h3 className="text-lg font-semibold">{feature.title}</h3>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Landing Page Models */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-6xl mx-auto"
+          >
+            <motion.div variants={itemVariants} className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Modelos Disponíveis
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Escolha o modelo ideal para seu negócio
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {landingPageModels.map((model, index) => (
+                <motion.div
+                  key={model.id}
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50">
+                    <div className="relative">
+                      <div className={`h-48 bg-gradient-to-r ${model.color} flex items-center justify-center`}>
+                        <model.icon className="h-16 w-16 text-white opacity-80" />
+                      </div>
+                      {!model.available && (
+                        <div className="absolute top-4 right-4">
+                          <Badge variant="secondary" className="bg-gray-500 text-white">
+                            {t.landingPages.comingSoon}
+                          </Badge>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                          {model.title}
+                        </CardTitle>
+                      </div>
+                      <Badge variant="outline" className="w-fit">
+                        {model.category}
+                      </Badge>
+                    </CardHeader>
+
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground text-sm">
+                        {model.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {features.slice(0, 2).map((feature, featureIndex) => (
+                          <Badge key={featureIndex} variant="secondary" className="text-xs">
+                            {feature.title}
+                          </Badge>
+                        ))}
+                      </div>
+
+                      <div className="pt-4">
+                        {model.available ? (
+                          <Button
+                            asChild
+                            variant="modern"
+                            className="w-full group-hover:scale-105 transition-transform"
+                          >
+                            <Link href={model.href} className="flex items-center justify-center gap-2">
+                              {t.landingPages.viewDemo}
+                              <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            disabled
+                            className="w-full"
+                          >
+                            {t.landingPages.comingSoon}
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <motion.div variants={itemVariants}>
+              <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+                <CardContent>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Precisa de uma Landing Page Personalizada?
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    Entre em contato para desenvolvermos uma solução exclusiva para seu negócio.
+                  </p>
+                  <Button
+                    asChild
+                    variant="modern"
+                    size="lg"
+                    className="px-8 py-3 text-lg font-semibold"
+                  >
+                    <Link href="/#contact" className="flex items-center gap-2">
+                      Solicitar Orçamento
+                      <ArrowRight className="h-5 w-5" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}

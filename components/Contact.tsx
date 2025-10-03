@@ -26,19 +26,19 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -107,13 +107,13 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
@@ -300,13 +300,15 @@ export default function Contact() {
                       className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 hover:scale-105"
                       asChild
                     >
-                    <Link
-                      href="/blog"
+                    <a
+                      href="https://alonerd.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2"
                     >
                       {t.contact.blog.button}
                       <span className="text-xs opacity-60">→</span>
-                    </Link>
+                    </a>
                     </Button>
                   </div>
                 </CardContent>
