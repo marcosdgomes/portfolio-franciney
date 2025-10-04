@@ -70,7 +70,7 @@ export default function About() {
     },
     {
       name: t.about.certificationsItems.astfc,
-      year: "2024",
+      year: "2025",
     },
     {
       name: t.about.certificationsItems.cypress,
