@@ -42,6 +42,7 @@ export default function Footer() {
     { name: t.nav.experience, href: locale === 'en' ? '/eng#experience' : '#experience' },
     { name: t.nav.skills, href: locale === 'en' ? '/eng#skills' : '#skills' },
     { name: t.nav.blog, href: locale === 'en' ? '/eng/blog' : '/blog' },
+    { name: t.nav.landingPages, href: locale === 'en' ? '/eng/landing-pages' : '/landing-pages' },
     { name: t.nav.contact, href: locale === 'en' ? '/eng#contact' : '#contact' },
   ];
 
@@ -58,7 +59,7 @@ export default function Footer() {
           >
             <h3 className="text-2xl font-bold text-primary mb-4">Franciney</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Web Designer & Desenvolvedor Full Stack especializado em criar soluções digitais eficientes e escaláveis.
+              {t.footer.description}
             </p>
             <div className="flex space-x-4">
               {contactInfo.slice(0, 2).map((info, index) => (
@@ -83,20 +84,19 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Navegação</h4>
-            <ul className="space-y-2">
+            <h4 className="text-lg font-semibold mb-4">{t.footer.navigation}</h4>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
               {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <motion.a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    whileHover={{ x: 5 }}
-                  >
-                    {link.name}
-                  </motion.a>
-                </li>
+                <motion.a
+                  key={index}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  {link.name}
+                </motion.a>
               ))}
-            </ul>
+            </div>
           </motion.div>
 
           {/* Contact Info */}
@@ -105,7 +105,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.footer.contact}</h4>
             <ul className="space-y-3">
               {contactInfo.map((info, index) => (
                 <li key={index}>
@@ -134,7 +134,7 @@ export default function Footer() {
           className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div className="text-center text-muted-foreground">
-            <span>Desenvolvido por Franciney Freitas</span>
+            <span>{t.footer.developedBy}</span>
           </div>
 
           <div className="flex items-center gap-4">

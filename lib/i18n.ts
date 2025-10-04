@@ -198,6 +198,10 @@ export const translations = {
     },
     footer: {
       rights: "Todos os direitos reservados.",
+      navigation: "Navegação",
+      contact: "Contato",
+      description: "Web Designer & Desenvolvedor Full Stack especializado em criar soluções digitais eficientes e escaláveis.",
+      developedBy: "Desenvolvido por Franciney Freitas",
     },
     blogPage: {
       title: "Blog de IA e Tecnologia",
@@ -432,6 +436,10 @@ export const translations = {
     },
     footer: {
       rights: "All rights reserved.",
+      navigation: "Navigation",
+      contact: "Contact",
+      description: "Web Designer & Full Stack Developer specialized in creating efficient and scalable digital solutions.",
+      developedBy: "Developed by Franciney Freitas",
     },
     blogPage: {
       title: "AI & Technology Blog",

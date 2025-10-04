@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Scale, ArrowRight, Phone, Mail } from 'lucide-react';
 
@@ -122,11 +123,13 @@ export default function LawyerHero() {
             >
               <div className="relative">
                 <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-                  <img
+                  <Image
                     src="https://cdn.pixabay.com/photo/2022/08/14/01/46/lawyer-7384762_1280.jpg"
                     alt="Advogado profissional em escritório moderno - Escritório de Advocacia São Paulo"
+                    width={600}
+                    height={384}
                     className="w-full h-full object-cover"
-                    loading="eager"
+                    priority={true}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>

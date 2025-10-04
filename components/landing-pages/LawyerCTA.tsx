@@ -124,7 +124,7 @@ export default function LawyerCTA() {
           {/* Final Message */}
           <motion.div variants={itemVariants} className="mt-12">
             <p className="text-lg text-gray-300 italic">
-              "A justiça atrasada não é justiça. Conte conosco para defender seus direitos com agilidade e eficiência."
+              &ldquo;A justiça atrasada não é justiça. Conte conosco para defender seus direitos com agilidade e eficiência.&rdquo;
             </p>
             <p className="text-sm text-orange-400 font-semibold mt-2">
               - Equipe de Advogados Especializados

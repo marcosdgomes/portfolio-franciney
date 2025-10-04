@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
@@ -147,11 +148,13 @@ export default function LawyerServices() {
             <Card className="p-8 bg-gradient-to-r from-slate-900 to-blue-900 text-white overflow-hidden relative">
               {/* Background Image */}
               <div className="absolute inset-0 opacity-20">
-                <img
+                <Image
                   src="https://cdn.pixabay.com/photo/2017/10/05/20/49/office-2820890_1280.jpg"
                   alt="Escritório de advocacia moderno - Ambiente profissional"
+                  width={1200}
+                  height={400}
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  priority={false}
                 />
               </div>
               

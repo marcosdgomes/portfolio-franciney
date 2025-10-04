@@ -114,7 +114,7 @@ export default function LawyerTestimonials() {
                     <div className="relative mb-4">
                       <Quote className="h-8 w-8 text-orange-500 opacity-20 absolute -top-2 -left-2" />
                       <p className="text-gray-800 italic relative z-10 leading-relaxed">
-                        "{testimonial.content}"
+                        &ldquo;{testimonial.content}&rdquo;
                       </p>
                     </div>
 

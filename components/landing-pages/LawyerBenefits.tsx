@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   Clock, 
   Users, 
@@ -105,11 +106,13 @@ export default function LawyerBenefits() {
             
             {/* Professional Image */}
             <div className="mt-8 max-w-2xl mx-auto">
-              <img
+              <Image
                 src="https://cdn.pixabay.com/photo/2022/06/21/04/37/family-law-solicitors-7275099_1280.jpg"
                 alt="Equipe de advogados especializados em direito de família - Escritório de Advocacia"
+                width={800}
+                height={256}
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                loading="lazy"
+                priority={false}
               />
             </div>
           </motion.div>

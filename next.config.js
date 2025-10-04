@@ -6,6 +6,7 @@ const nextConfig = {
       'images.unsplash.com', 
       'via.placeholder.com', 
       'alonerd.com',
+      'cdn.pixabay.com',
       'secure.gravatar.com',
       'www.gravatar.com',
       'gravatar.com',
