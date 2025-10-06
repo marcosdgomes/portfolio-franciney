@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Smartphone, Zap, Palette, Clock, Scale, ArrowRight } from 'lucide-react';
+import { ExternalLink, Smartphone, Zap, Palette, Clock, Scale, ArrowRight, Newspaper, Globe, TrendingUp, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -58,6 +58,53 @@ export default function LandingPages() {
     }
   ];
 
+  const newsSites = [
+    {
+      id: "ac24horas",
+      title: "AC24Horas",
+      description: "Portal de notícias do Acre com mais de 712 mil visitas mensais. Desenvolvido com foco em performance e experiência do usuário.",
+      category: "Portal de Notícias",
+      url: "https://ac24horas.com/",
+      icon: Newspaper,
+      color: "from-red-600 to-red-700",
+      visits: "712 mil/mês",
+      available: true
+    },
+    {
+      id: "ecosdanoticia",
+      title: "Ecos da Notícia",
+      description: "Site de notícias com 27 mil visitas mensais. Interface moderna e responsiva para máxima engajamento.",
+      category: "Site de Notícias",
+      url: "https://ecosdanoticia.net/",
+      icon: Globe,
+      color: "from-blue-600 to-blue-700",
+      visits: "27 mil/mês",
+      available: true
+    },
+    {
+      id: "fatoscomnoticias",
+      title: "Fatos com Notícias",
+      description: "Portal de notícias focado em fatos e informações relevantes. Design limpo e navegação intuitiva.",
+      category: "Portal de Notícias",
+      url: "https://fatoscomnoticias.com/",
+      icon: TrendingUp,
+      color: "from-green-600 to-green-700",
+      visits: "Em crescimento",
+      available: true
+    },
+    {
+      id: "acreagora",
+      title: "Acre Agora",
+      description: "Portal de notícias do Acre com 10 mil visitas mensais. Foco em notícias locais e regionais.",
+      category: "Portal Regional",
+      url: "https://acreagora.com/",
+      icon: Users,
+      color: "from-purple-600 to-purple-700",
+      visits: "10 mil/mês",
+      available: true
+    }
+  ];
+
   const landingPageModels = [
     {
       id: "lawyer",
@@ -97,7 +144,7 @@ export default function LandingPages() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section className="pt-32 pb-20" style={{ backgroundColor: '#000000' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -122,7 +169,7 @@ export default function LandingPages() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16" style={{ backgroundColor: '#000000' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -155,8 +202,89 @@ export default function LandingPages() {
         </div>
       </section>
 
+      {/* News Sites Section */}
+      <section className="py-16" style={{ backgroundColor: '#000000' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="max-w-6xl mx-auto"
+          >
+            <motion.div variants={itemVariants} className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Sites de Notícias Desenvolvidos
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Portais de notícias com alta performance e milhões de acessos mensais
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {newsSites.map((site, index) => (
+                <motion.div
+                  key={site.id}
+                  variants={itemVariants}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50">
+                    <div className="relative">
+                      <div className={`h-32 bg-gradient-to-r ${site.color} flex items-center justify-center`}>
+                        <site.icon className="h-12 w-12 text-white opacity-90" />
+                      </div>
+                      <div className="absolute top-3 right-3">
+                        <Badge variant="secondary" className="bg-white/90 text-gray-800 font-semibold">
+                          {site.visits}
+                        </Badge>
+                      </div>
+                    </div>
+                    
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                          {site.title}
+                        </CardTitle>
+                      </div>
+                      <Badge variant="outline" className="w-fit text-xs">
+                        {site.category}
+                      </Badge>
+                    </CardHeader>
+
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground text-sm">
+                        {site.description}
+                      </p>
+
+                      <div className="pt-4">
+                        <Button
+                          asChild
+                          variant="outline"
+                          className="w-full group-hover:scale-105 transition-transform"
+                        >
+                          <a 
+                            href={site.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            Visitar Site
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Landing Page Models */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16" style={{ backgroundColor: '#000000' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -252,7 +380,7 @@ export default function LandingPages() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16" style={{ backgroundColor: '#000000' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
