@@ -142,9 +142,9 @@ export default function LandingPages() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-\[\#fafafa\] dark:bg-\[\#000000\] transition-colors">
       {/* Hero Section */}
-      <section className="pt-32 pb-20" style={{ backgroundColor: '#000000' }}>
+      <section className="pt-32 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -169,7 +169,7 @@ export default function LandingPages() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16" style={{ backgroundColor: '#000000' }}>
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -186,7 +186,7 @@ export default function LandingPages() {
                   whileHover={{ y: -5 }}
                   className="group"
                 >
-                  <Card className="h-full text-center p-6 hover:shadow-xl transition-all duration-300 group-hover:border-primary/50">
+                  <Card className="h-full text-center p-6 hover:shadow-xl transition-all duration-300 group-hover:border-primary/50 bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
                     <CardContent className="space-y-4">
                       <div className="mx-auto w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                         <feature.icon className="h-8 w-8 text-white" />
@@ -203,7 +203,7 @@ export default function LandingPages() {
       </section>
 
       {/* News Sites Section */}
-      <section className="py-16" style={{ backgroundColor: '#000000' }}>
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -229,7 +229,7 @@ export default function LandingPages() {
                   whileHover={{ y: -8 }}
                   className="group"
                 >
-                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50">
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50 bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
                     <div className="relative">
                       <div className={`h-32 bg-gradient-to-r ${site.color} flex items-center justify-center`}>
                         <site.icon className="h-12 w-12 text-white opacity-90" />
@@ -284,7 +284,7 @@ export default function LandingPages() {
       </section>
 
       {/* Landing Page Models */}
-      <section className="py-16" style={{ backgroundColor: '#000000' }}>
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -310,7 +310,7 @@ export default function LandingPages() {
                   whileHover={{ y: -8 }}
                   className="group"
                 >
-                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50">
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:border-primary/50 bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
                     <div className="relative">
                       <div className={`h-48 bg-gradient-to-r ${model.color} flex items-center justify-center`}>
                         <model.icon className="h-16 w-16 text-white opacity-80" />
@@ -380,7 +380,7 @@ export default function LandingPages() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16" style={{ backgroundColor: '#000000' }}>
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
@@ -390,7 +390,7 @@ export default function LandingPages() {
             className="max-w-4xl mx-auto text-center"
           >
             <motion.div variants={itemVariants}>
-              <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+              <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20 bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800">
                 <CardContent>
                   <h2 className="text-3xl font-bold mb-4">
                     Precisa de uma Landing Page Personalizada?
