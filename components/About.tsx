@@ -61,6 +61,10 @@ export default function About() {
 
   const certifications = [
     {
+      name: "Linkedin e Tiktok Ads: criação e estratégias de campanhas - Alura",
+      year: "2025",
+    },
+    {
       name: "ChatGPT: Otimizando a qualidade dos resultados - Alura",
       year: "2025",
     },

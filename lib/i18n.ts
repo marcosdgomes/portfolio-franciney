@@ -18,7 +18,7 @@ export const translations = {
     },
     about: {
       title: "Sobre Mim",
-      description: "Profissional multidisciplinar com sólida experiência em desenvolvimento web, automação de processos e marketing digital, unindo design, performance e tecnologia para gerar resultados reais.\n\nFormado em Análise de Sistemas e cursando Engenharia de Software, possuo uma base técnica que integra programação, arquitetura de sistemas e automação — aplicando esse conhecimento para desenvolver soluções digitais eficientes, seguras e escaláveis.\n\nAtuei na criação de sites institucionais, landing pages, marketplaces e portais de notícias, desenvolvidos com React, Next.js, WordPress e Tailwind CSS, sempre com foco em SEO, usabilidade e conversão de leads.\n\nAlém da atuação como Web Designer e Desenvolvedor Front-End, possuo experiência em suporte técnico, QA e automação de testes (Cypress, GitHub Actions), além de vivência em gestão de projetos e equipes em diferentes segmentos.\n\nMeu objetivo é aplicar essa combinação de conhecimento técnico e visão estratégica para entregar experiências digitais de alto desempenho, contribuindo com o crescimento e a inovação de empresas e produtos.",
+      description: "Profissional multidisciplinar com sólida experiência em desenvolvimento web, automação de processos e marketing digital, unindo design, performance e tecnologia para gerar resultados reais. Pós Graduado em Análise de Sistemas com MBA em Gestão de Pessoas e Liderança de Equipes e cursando Engenharia de Software, possuo uma base técnica que integra programação, arquitetura de sistemas e automação — aplicando esse conhecimento para desenvolver soluções digitais eficientes, seguras e escaláveis. Atuei na criação de sites institucionais, landing pages, marketplaces e portais de notícias, desenvolvidos com React, Next.js, WordPress e Tailwind CSS, sempre com foco em SEO, usabilidade e conversão de leads. Além da atuação como Web Designer e Desenvolvedor Front-End, possuo experiência em suporte técnico, QA e automação de testes (Cypress, GitHub Actions), além de vivência em gestão de projetos e equipes em diferentes segmentos. Meu objetivo é aplicar essa combinação de conhecimento técnico e visão estratégica para entregar experiências digitais de alto desempenho, contribuindo com o crescimento e a inovação de empresas e produtos.",
       education: "Formação Acadêmica",
       certifications: "Certificações",
       mainSkills: "Principais Habilidades",
@@ -88,7 +88,7 @@ export const translations = {
         ],
       },
       freelancer: {
-        title: "Desenvolvedor Web WordPress",
+        title: "Desenvolvedor Web - Web Designer",
         company: "Freelancer",
         period: "jan/2023 – Atualmente",
         description: "Desenvolvimento e gestão de sites de notícias com mais de 25 milhões de acessos/mês, criação de páginas responsivas e integrações de APIs.",
@@ -256,7 +256,7 @@ export const translations = {
     },
     about: {
       title: "About Me",
-      description: "Multidisciplinary professional with solid experience in web development, process automation and digital marketing, combining design, performance and technology to generate real results.\n\nGraduated in Systems Analysis and currently studying Software Engineering, I have a technical foundation that integrates programming, systems architecture and automation — applying this knowledge to develop efficient, secure and scalable digital solutions.\n\nI worked on creating institutional websites, landing pages, marketplaces and news portals, developed with React, Next.js, WordPress and Tailwind CSS, always focusing on SEO, usability and lead conversion.\n\nBeyond my role as a Web Designer and Front-End Developer, I have experience in technical support, QA and test automation (Cypress, GitHub Actions), as well as experience in project and team management across different segments.\n\nMy goal is to apply this combination of technical knowledge and strategic vision to deliver high-performance digital experiences, contributing to the growth and innovation of companies and products.",
+      description: "Multidisciplinary professional with solid experience in web development, process automation and digital marketing, combining design, performance and technology to generate real results. Postgraduate in Systems Analysis with an MBA in People Management and Team Leadership and currently studying Software Engineering, I have a technical foundation that integrates programming, systems architecture and automation — applying this knowledge to develop efficient, secure and scalable digital solutions. I worked on creating institutional websites, landing pages, marketplaces and news portals, developed with React, Next.js, WordPress and Tailwind CSS, always focusing on SEO, usability and lead conversion. Beyond my role as a Web Designer and Front-End Developer, I have experience in technical support, QA and test automation (Cypress, GitHub Actions), as well as experience in project and team management across different segments. My goal is to apply this combination of technical knowledge and strategic vision to deliver high-performance digital experiences, contributing to the growth and innovation of companies and products.",
       education: "Academic Background",
       certifications: "Certifications",
       mainSkills: "Main Skills",
@@ -326,7 +326,7 @@ export const translations = {
         ],
       },
       freelancer: {
-        title: "WordPress Web Developer",
+        title: "Web Developer - Web Designer",
         company: "Freelancer",
         period: "jan/2023 – Currently",
         description: "Development and management of news sites with more than 25 million monthly visits, creation of responsive pages and API integrations.",
