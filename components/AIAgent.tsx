@@ -56,7 +56,7 @@ export default function AIAgent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: inputMessage,
+          chatInput: inputMessage,
           sessionId: 'user-session-' + Date.now()
         }),
       });
