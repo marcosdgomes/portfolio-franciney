@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { GlobalBackground } from '@/components/GlobalBackground'
+import AIAgent from '@/components/AIAgent'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -138,6 +139,7 @@ export default function RootLayout({
                 </main>
                 <Footer />
               </div>
+              <AIAgent />
             </div>
           </LanguageProvider>
         </ThemeProvider>
