@@ -225,7 +225,7 @@ export default function GoogleAdsCourse() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
-                <Card className="p-6 text-center hover:shadow-lg transition-shadow duration-300 border-0 shadow-md h-full flex flex-col">
+                <Card className="p-6 text-center hover:shadow-lg transition-shadow duration-300 border-0 shadow-md h-full flex flex-col bg-white">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white mx-auto mb-4">
                     {benefit.icon}
                   </div>
@@ -267,7 +267,7 @@ export default function GoogleAdsCourse() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
-                <Card className="p-8 hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+                <Card className="p-8 hover:shadow-lg transition-shadow duration-300 border-0 shadow-md bg-white">
                   <div className="flex flex-col lg:flex-row gap-8 items-start">
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
