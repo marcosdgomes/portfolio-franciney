@@ -13,6 +13,13 @@ const nextConfig = {
       '0.gravatar.com',
       '1.gravatar.com',
       '2.gravatar.com',
+      'img.odcdn.com.br',
+      'gmzmoke.com.br',
+      'agenciafreela.com.br',
+      'abradi.com.br',
+      'agenciadecriacao.com.br',
+      'ukmarketingdigital.com.br',
+      'alonerd.com',
     ],
     remotePatterns: [
       {
@@ -24,6 +31,41 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.gravatar.com',
         pathname: '/avatar/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.odcdn.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'gmzmoke.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'agenciafreela.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'abradi.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'agenciadecriacao.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ukmarketingdigital.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'alonerd.com',
+        pathname: '/wp-content/uploads/**',
       },
     ],
   },

@@ -107,6 +107,19 @@ export default function LandingPages() {
 
   const landingPageModels = [
     {
+      id: "google-ads-course",
+      title: "Google Ads Descomplicado 2.0",
+      description: "Landing page de vendas para curso online com alta conversão e design profissional.",
+      category: "Curso Online",
+      image: "/api/placeholder/400/250",
+      icon: TrendingUp,
+      color: "from-green-600 to-blue-600",
+      href: "/landing-pages/google-ads-course",
+      available: true,
+      price: "R$ 19,90",
+      badge: "Mais Vendido"
+    },
+    {
       id: "lawyer",
       title: t.landingPages.models.lawyer.title,
       description: t.landingPages.models.lawyer.description,
@@ -315,6 +328,13 @@ export default function LandingPages() {
                       <div className={`h-48 bg-gradient-to-r ${model.color} flex items-center justify-center`}>
                         <model.icon className="h-16 w-16 text-white opacity-80" />
                       </div>
+                      {model.badge && model.available && (
+                        <div className="absolute top-4 right-4">
+                          <Badge className="bg-green-600 text-white font-semibold">
+                            {model.badge}
+                          </Badge>
+                        </div>
+                      )}
                       {!model.available && (
                         <div className="absolute top-4 right-4">
                           <Badge variant="secondary" className="bg-gray-500 text-white">
@@ -339,6 +359,17 @@ export default function LandingPages() {
                       <p className="text-muted-foreground text-sm">
                         {model.description}
                       </p>
+
+                      {model.price && (
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-bold text-green-600">
+                            {model.price}
+                          </span>
+                          <span className="text-sm text-muted-foreground">
+                            Preço promocional
+                          </span>
+                        </div>
+                      )}
 
                       <div className="flex flex-wrap gap-2">
                         {features.slice(0, 2).map((feature, featureIndex) => (
