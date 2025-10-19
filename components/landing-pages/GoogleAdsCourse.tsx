@@ -334,7 +334,7 @@ export default function GoogleAdsCourse() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-6 italic flex-1">
-                  "O curso mudou completamente minha visão sobre Google Ads. Em apenas 2 semanas consegui reduzir meu CPC em 40% e aumentar as conversões. Vale cada centavo investido!"
+                  &ldquo;O curso mudou completamente minha visão sobre Google Ads. Em apenas 2 semanas consegui reduzir meu CPC em 40% e aumentar as conversões. Vale cada centavo investido!&rdquo;
                 </p>
                 <div className="flex items-center">
                   <Image
@@ -365,7 +365,7 @@ export default function GoogleAdsCourse() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-6 italic flex-1">
-                  "Como agência, precisávamos de uma metodologia comprovada para nossos clientes. Este curso nos deu exatamente isso. ROI aumentou 300% em 30 dias!"
+                  &ldquo;Como agência, precisávamos de uma metodologia comprovada para nossos clientes. Este curso nos deu exatamente isso. ROI aumentou 300% em 30 dias!&rdquo;
                 </p>
                 <div className="flex items-center">
                   <Image
@@ -396,7 +396,7 @@ export default function GoogleAdsCourse() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-6 italic flex-1">
-                  "Franciney explica de forma clara e objetiva. Mesmo sendo iniciante, consegui criar campanhas que vendem desde o primeiro dia. Recomendo para todos!"
+                  &ldquo;Franciney explica de forma clara e objetiva. Mesmo sendo iniciante, consegui criar campanhas que vendem desde o primeiro dia. Recomendo para todos!&rdquo;
                 </p>
                 <div className="flex items-center">
                   <Image
