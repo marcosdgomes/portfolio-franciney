@@ -22,6 +22,8 @@ const nextConfig = {
       'alonerd.com',
       'hellomidia.com.br',
       'encrypted-tbn0.gstatic.com',
+      'cajamar.sp.gov.br',
+      'static.vecteezy.com',
     ],
     remotePatterns: [
       {
@@ -78,6 +80,16 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'encrypted-tbn0.gstatic.com',
         pathname: '/images?**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cajamar.sp.gov.br',
+        pathname: '/noticias/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static.vecteezy.com',
+        pathname: '/system/resources/thumbnails/**',
       },
     ],
   },
