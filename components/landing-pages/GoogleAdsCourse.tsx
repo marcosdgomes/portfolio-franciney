@@ -115,12 +115,15 @@ export default function GoogleAdsCourse() {
                 Curso Mais Vendido
               </Badge>
               
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Google Ads
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  {" "}Descomplicado 2.0
-                </span>
-              </h1>
+                  <div className="flex flex-col gap-2 mb-6">
+                    <h2 className="text-4xl lg:text-5xl font-bold" style={{ color: '#64686b', fontFamily: 'Arial, sans-serif' }}>
+                      Google Ads
+                    </h2>
+                    <h1 className="text-3xl lg:text-4xl font-bold leading-tight">
+                      <span className="text-blue-600">Descomplicado</span>{" "}
+                      <span className="text-purple-600">2.0</span>
+                    </h1>
+                  </div>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Aprenda de forma prática e direta como criar campanhas que realmente vendem no Google Ads!

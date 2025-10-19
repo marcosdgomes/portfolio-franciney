@@ -20,6 +20,8 @@ const nextConfig = {
       'agenciadecriacao.com.br',
       'ukmarketingdigital.com.br',
       'alonerd.com',
+      'hellomidia.com.br',
+      'encrypted-tbn0.gstatic.com',
     ],
     remotePatterns: [
       {
@@ -66,6 +68,16 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'alonerd.com',
         pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hellomidia.com.br',
+        pathname: '/wp-content/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+        pathname: '/images?**',
       },
     ],
   },
