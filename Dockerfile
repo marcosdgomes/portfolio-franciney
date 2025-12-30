@@ -1,5 +1,5 @@
 # Use imagem oficial do Node.js 18 Alpine como base
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 
 # Instalar dependências necessárias para o Alpine
 RUN apk add --no-cache libc6-compat
@@ -57,4 +57,5 @@ ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
 # Comando para iniciar a aplicação
+
 CMD ["node", "server.js"]
